@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chula Recruitment Portal Demo</title>
+  <!-- Bootstrap CSS for modern, responsive design -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Overall page styling */
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+    }
+    /* Hero section styling */
+    .hero {
+      position: relative;
+      background: url('https://via.placeholder.com/1920x600?text=Experience+Campus+Life') no-repeat center center/cover;
+      color: #fff;
+      text-align: center;
+      padding: 120px 0;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    }
+    .hero p {
+      font-size: 1.25rem;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    /* Styling for the iframe container (target site) */
+    .iframe-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 500px;
+      border: 2px solid #dee2e6;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      margin-top: 30px;
+    }
+    .iframe-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* Clickjacking overlay: invisible but placed over a call-to-action button for demonstration */
+    .clickjacking-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* For demo purposes you might initially see a semi-transparent red color;
+         in a real attack this layer would be transparent */
+      background: rgba(255, 0, 0, 0.1);
+      cursor: pointer;
+      z-index: 10;
+    }
+    /* Institutions section styling */
+    .institutions .card {
+      margin-bottom: 30px;
+    }
+    /* Footer styling */
+    footer {
+      background-color: #343a40;
+      color: #adb5bd;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Chula Admissions</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+              data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" 
+              aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+         <ul class="navbar-nav ms-auto">
+           <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+           <li class="nav-item"><a class="nav-link" href="#">Programs</a></li>
+           <li class="nav-item"><a class="nav-link" href="#">Admissions</a></li>
+           <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+         </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1 class="display-4">Unlock Your Future</h1>
+      <p class="lead">Join a world-class community at Chulalongkorn and partner institutions.</p>
+      <!-- Call-to-Action Button -->
+      <a href="#" class="btn btn-primary btn-lg mt-4">Apply Now</a>
+    </div>
+    <!-- Invisible overlay for clickjacking demo -->
+    <div class="clickjacking-overlay" onclick="simulateClickjacking()"></div>
+  </section>
+
+  <!-- Target Web Content (Math Department site loaded via iframe) -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h2 class="mb-4 text-center">Featured Department</h2>
+      <div class="iframe-container">
+        <!-- The iframe loads the Math Department website -->
+        <iframe src="https://math.sc.chula.ac.th/th/" title="Chulalongkorn Math Department"></iframe>
+      </div>
+      <p class="text-center mt-3 text-muted">This embedded view simulates the official department website.</p>
+    </div>
+  </section>
+  
+  <!-- Partner Institutions Section -->
+  <section class="institutions py-5 bg-light">
+    <div class="container">
+      <h2 class="mb-4 text-center">Our Partner Institutions</h2>
+      <div class="row">
+        <!-- Institution 1 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/350x200?text=Chulalongkorn+University" class="card-img-top" alt="Chulalongkorn University">
+            <div class="card-body">
+              <h5 class="card-title">Chulalongkorn University</h5>
+              <p class="card-text">A leading institution known for research and academic excellence in Thailand.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Institution 2 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/350x200?text=University+of+Oxford" class="card-img-top" alt="University of Oxford">
+            <div class="card-body">
+              <h5 class="card-title">University of Oxford</h5>
+              <p class="card-text">Prestigious and rich in tradition, Oxford offers world-class education.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Institution 3 -->
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/350x200?text=Stanford+University" class="card-img-top" alt="Stanford University">
+            <div class="card-body">
+              <h5 class="card-title">Stanford University</h5>
+              <p class="card-text">Located at the heart of Silicon Valley, Stanford fosters innovation and entrepreneurship.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-0">&copy; 2024 Chula Admissions. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+  <!-- Bootstrap Bundle JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Clickjacking simulation script -->
+  <script>
+    function simulateClickjacking(){
+      // This function simulates a clickjacking action.
+      // In a real-world attack, the invisible overlay would force unintended clicks,
+      // for example redirecting the user to an advertisement page or triggering an action.
+      alert("Clickjacking demo activated! You have been tricked into clicking the ad.");
+      // Optionally, redirect the user:
+      // window.location.href = "https://advert.example.com";
+    }
+  </script>
+</body>
+</html>
